@@ -1,4 +1,41 @@
-# Powauth
+Dummy [Pow](https://powauth.com/) instance to demo Next.js authentication library
+
+# How to use this dummy instance
+
+- Run `docker-compose up` to start services (`-d` to run detached)
+- Run `docker-compose stop` to stop and preserve database
+- Run `docker-compose down` to stop and cleanup database
+
+## Registering via API
+
+```shell
+curl --location --request POST 'http://localhost:4000/api/v1/registration' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "user": {
+        "email": "test@example.com",
+        "password": "1234567890",
+        "password_confirmation": "1234567890"
+    }
+}'
+```
+
+## Create new session
+
+```shell
+curl --location --request POST 'http://localhost:4000/api/v1/session' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "user": {
+        "email": "test@example.com",
+        "password": "1234567890"
+    }
+}'
+```
+
+More info here [Add API controllers](https://hexdocs.pm/pow/api.html#add-api-controllers)
+
+# Phoenix README
 
 To start your Phoenix server:
 
